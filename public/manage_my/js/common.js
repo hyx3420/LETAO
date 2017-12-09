@@ -38,4 +38,9 @@ $(function () {
         // 跳转
     })
 
+    // 当点击 分类管理的时候
+    $(".lt_aside .content ul>li:eq(1)>a").on("click",function(){
+        $(".lt_aside .content li ol").slideToggle();
+    })
+
 })

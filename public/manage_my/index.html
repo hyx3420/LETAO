@@ -8,9 +8,9 @@
     <title>Document</title>
     <!-- 导入 bootstrap CSS -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
-    <!-- 导入 自己的 css -->
+    <!-- 导入公共的 CSS -->
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <!-- 导入 自己的 css -->
 </head>
 
 <body>
@@ -32,8 +32,8 @@
         <!-- 菜单 -->
         <div class="content">
             <ul>
-                <li class="active">
-                    <a href="javascript:void(0);">
+                <li>
+                    <a href="user.html">
                         <span class="glyphicon glyphicon-user"></span>
                         用户管理
                     </a>
@@ -41,17 +41,17 @@
                 <li>
                     <a href="javascript:void(0);">
                         <span class="glyphicon glyphicon-list"></span>
-                        用户管理
+                        分类管理
                     </a>
-                    <ol>
-                        <li><a href="javascript:void(0);">一级分栏</a></li>
-                        <li><a href="javascript:void(0);">二级分栏</a></li>
+                    <ol style="display: none">
+                        <li><a href="first.html">一级分栏</a></li>
+                        <li><a href="second.html">二级分栏</a></li>
                     </ol>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">
+                    <a href="products.html">
                         <span class="glyphicon glyphicon-tags"></span>
-                        用户管理
+                        商品管理
                     </a>
                 </li>
             </ul>

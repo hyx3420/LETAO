@@ -8,9 +8,8 @@
     <title>Document</title>
     <!-- 导入 bootstrap CSS -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
-    <!-- 导入 自己的 css -->
+    <!-- 导入公共的 CSS -->
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
@@ -33,7 +32,7 @@
         <div class="content">
             <ul>
                 <li class="active">
-                    <a href="javascript:void(0);">
+                    <a href="user.html">
                         <span class="glyphicon glyphicon-user"></span>
                         用户管理
                     </a>
@@ -41,17 +40,21 @@
                 <li>
                     <a href="javascript:void(0);">
                         <span class="glyphicon glyphicon-list"></span>
-                        用户管理
+                        分类管理
                     </a>
-                    <ol>
-                        <li><a href="javascript:void(0);">一级分栏</a></li>
-                        <li><a href="javascript:void(0);">二级分栏</a></li>
+                    <ol style="display: none">
+                        <li>
+                            <a href="first.html">一级分栏</a>
+                        </li>
+                        <li>
+                            <a href="second.html">二级分栏</a>
+                        </li>
                     </ol>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">
+                    <a href="products.html">
                         <span class="glyphicon glyphicon-tags"></span>
-                        用户管理
+                        商品管理
                     </a>
                 </li>
             </ul>
@@ -71,33 +74,84 @@
                     <a href="#">管理系统</a>
                 </li>
                 <li>
-                    首页
+                    用户管理
                 </li>
             </ol>
-            <div id="main_left" class="pull-left" style="width: 513px;height:400px;"></div>
-            <div id="main_right" class="pull-right" style="width: 513px;height:400px; right:0; "></div>
+            <!-- 表格 -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>手机号</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>ma</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>
+                            <bottom class="btn btn-danger">禁用</bottom>
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <ul id="pagintor"></ul>
         </div>
-
-
     </div>
     <!-- 模态框 -->
     <div class="modal fade modal-sure" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">温馨提示</h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">
+                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-primary">确定</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- 表格的模板 -->
+    <script id="user-tmp" type="text/html">
+        {{each rows}}
+        <tr>
+            <td>{{(page-1)*size+1+$index}}</td>
+            <td>{{$value.username}}</td>
+            <td>{{$value.mobile}}</td>
+            <td>
+                {{if $value.isDelete == 1}}
+                    已禁用
+                {{else}}
+                    正常
+                {{/if}}
+            </td>
+            <td data-id="{{$value.id}}">
+                {{if $value.isDelete == 1}}
+                    <button class="btn btn-primary">启用</button>
+                {{else}}
+                    <button class="btn btn-danger">禁用</button>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </script>
 </body>
 
 </html>
@@ -105,9 +159,11 @@
 <script src="./lib/jquery/jquery.js"></script>
 <!-- 导入 bootstrap 的 JS -->
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
-<!-- 导入 Echarts -->
-<script src="./lib/echarts/echarts.min.js"></script>
+<!-- 分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<!-- 导入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 导入公共的 JS -->
 <script src="./js/common.js"></script>
-<!-- 导入 自己的 JS -->
-<script src="./js/index.js"></script>
+<!-- 导入自己的 JS -->
+<script src="./js/user.js"></script>
