@@ -16,6 +16,10 @@ ol,ul{
     list-style: none;
 }
 
+.mb-20{
+    margin-bottom:20px;
+}
+
 
 /* logo 部分 */
 .lt_aside{

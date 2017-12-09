@@ -24,7 +24,7 @@ $(function () {
     })
 
     // 点击模态框的确定跳转到首页
-    $(".modal .modal-dialog .btn-primary").on("click", function () {
+    $(".modal .modal-dialog .yes").on("click", function () {
         // 关闭模态框
         $('.modal-sure').modal('hide');
         // 清除登录状态

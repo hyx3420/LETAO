@@ -8,7 +8,9 @@
     <title>Document</title>
     <!-- 导入 bootstrap CSS -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
-    <!-- 导入 自己的 css -->
+    <!-- 引入表单验证的 CSS -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
+    <!-- 导入公共的 CSS -->
     <link rel="stylesheet" href="./css/base.css">
 </head>
 
@@ -43,8 +45,12 @@
                         分类管理
                     </a>
                     <ol>
-                        <li><a style="color:white;" href="first.html">一级分栏</a></li>
-                        <li><a href="second.html">二级分栏</a></li>
+                        <li>
+                            <a style="color:white" href="first.html">一级分栏</a>
+                        </li>
+                        <li>
+                            <a href="second.html">二级分栏</a>
+                        </li>
                     </ol>
                 </li>
                 <li>
@@ -70,31 +76,99 @@
                     <a href="#">管理系统</a>
                 </li>
                 <li>
-                    首页
+                    用户管理
                 </li>
             </ol>
+            <button data-toggle="modal" data-target="#modal-add" class="btn btn-default mb-20">添加分类</button>
+            <!-- 表格 -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>分类名称</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>ma</td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <ul id="pagintor"></ul>
         </div>
-
-
     </div>
     <!-- 模态框 -->
     <div class="modal fade modal-sure" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">温馨提示</h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">
+                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="yes btn btn-primary">确定</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- 新增模态框 -->
+    <div id="modal-add" class="modal fade modal-add" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- 表单 -->
+                    <form id="myForm">
+                        <div class="form-group">
+                            <input name="categoryName" type="text" class="form-control" placeholder="请输入一级分类名称">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button form="myForm" type="submit" class="btn btn-primary">确定</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" class="btn btn-primary">确定</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
+
+
+
+    <!-- tbody 的模板 -->
+    <script id="first-tmp" type="text/html">
+        {{each rows}}
+        <tr>
+            <td>{{(page-1)*size+1+$index}}</td>
+            <td>{{$value.categoryName}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+
+
 </body>
 
 </html>
@@ -102,6 +176,13 @@
 <script src="./lib/jquery/jquery.js"></script>
 <!-- 导入 bootstrap 的 JS -->
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
+<!-- 导入表单验证的 JS -->
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<!-- 分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<!-- 导入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 导入公共的 JS -->
 <script src="./js/common.js"></script>
-<!-- 导入 自己的 JS -->
+<!-- 导入自己的 JS -->
+<script src="./js/first.js"></script>
