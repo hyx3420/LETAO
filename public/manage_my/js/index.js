@@ -1,4 +1,5 @@
 $(function () {
+
     var myChart_left = echarts.init(document.getElementById('main_left'));
 
     // 指定图表的配置项和数据
@@ -70,3 +71,4 @@ $(function () {
     myChart_right.setOption(option);
 
 })
+

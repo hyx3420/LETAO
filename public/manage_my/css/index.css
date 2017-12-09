@@ -70,6 +70,11 @@
     padding-left: 180px;
     width: 100%;
 }
+/* 给主体准备一个类名 */
+.lt_main.fullScreen{
+    padding-left:0; 
+}
+
 .lt_main .lt_nav{
     height: 50px;
     width: 100%;
@@ -81,6 +86,7 @@
     color: white;
     line-height: 50px;
     font-size: 16px;
+    text-decoration: none;
 }
 
 /* 导航区域 */
