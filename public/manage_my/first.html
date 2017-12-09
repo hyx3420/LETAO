@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 导入 bootstrap CSS -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 导入 自己的 css -->
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 侧边栏 -->
+    <div class="lt_aside">
+        <!-- logo -->
+        <div class="logo">
+            <h2>
+                <a href="./index.html">ITCAST</a>
+            </h2>
+        </div>
+        <!-- 用户头像 -->
+        <div class="user">
+            <!-- 图片 -->
+            <img src="./images/default.png" alt="">
+            <!-- 用户名字 -->
+            <span>超级管理员</span>
+        </div>
+        <!-- 菜单 -->
+        <div class="content">
+            <ul>
+                <li class="active">
+                    <a href="javascript:void(0);">
+                        <span class="glyphicon glyphicon-user"></span>
+                        用户管理
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="glyphicon glyphicon-list"></span>
+                        用户管理
+                    </a>
+                    <ol>
+                        <li><a href="javascript:void(0);">一级分栏</a></li>
+                        <li><a href="javascript:void(0);">二级分栏</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="glyphicon glyphicon-tags"></span>
+                        用户管理
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 主体 -->
+    <div class="lt_main">
+        <!-- 主体的头部 -->
+        <div class="lt_nav clearfix">
+            <a class="glyphicon glyphicon-align-justify pull-left" href="javascript:void(0)"></a>
+            <a class="glyphicon glyphicon glyphicon-log-out pull-right" href="javascript:void(0)"></a>
+        </div>
+        <div class="content clearfix">
+            <!-- 导航 -->
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">管理系统</a>
+                </li>
+                <li>
+                    首页
+                </li>
+            </ol>
+            <div id="main_left" class="pull-left" style="width: 513px;height:400px;"></div>
+            <div id="main_right" class="pull-right" style="width: 513px;height:400px; right:0; "></div>
+        </div>
+
+
+    </div>
+    <!-- 模态框 -->
+    <div class="modal fade modal-sure" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+              <p class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+              <button type="button" class="btn btn-primary">确定</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+</body>
+
+</html>
+<!-- 导入 JQ -->
+<script src="./lib/jquery/jquery.js"></script>
+<!-- 导入 bootstrap 的 JS -->
+<script src="./lib/bootstrap/js/bootstrap.js"></script>
+<!-- 导入 Echarts -->
+<script src="./lib/echarts/echarts.min.js"></script>
+<!-- 导入公共的 JS -->
+<script src="./js/common.js"></script>
+<!-- 导入 自己的 JS -->
+<script src="./js/index.js"></script>
