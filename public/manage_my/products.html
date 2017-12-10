@@ -8,6 +8,8 @@
     <title>Document</title>
     <!-- 导入 bootstrap CSS -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <!-- 引入表单验证的 CSS -->
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <!-- 导入 自己的 css -->
     <link rel="stylesheet" href="./css/base.css">
 </head>
@@ -43,8 +45,12 @@
                         分类管理
                     </a>
                     <ol style="display: none">
-                        <li><a href="first.html">一级分栏</a></li>
-                        <li><a href="second.html">二级分栏</a></li>
+                        <li>
+                            <a href="first.html">一级分栏</a>
+                        </li>
+                        <li>
+                            <a href="second.html">二级分栏</a>
+                        </li>
                     </ol>
                 </li>
                 <li class="active">
@@ -70,37 +76,163 @@
                     <a href="#">管理系统</a>
                 </li>
                 <li>
-                    首页
+                    商品管理
                 </li>
             </ol>
+            <!-- 添加按钮 -->
+            <button data-toggle="modal" data-target=".modal-add" class="btn btn-default mb-20">添加分类</button>
+            <!-- 表格 -->
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="5%">序号</th>
+                        <th width="25%">商品名称</th>
+                        <th width="25%">商品描述</th>
+                        <th width="10%">商品库存</th>
+                        <th width="10%">商品尺寸</th>
+                        <th width="10%">商品状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>
+                            <button class="btn btn-danger">下架</button>
+                            <button class="btn btn-primary">编辑</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <ul class="pagintor"></ul>
         </div>
-
-
     </div>
+
+
+
     <!-- 模态框 -->
     <div class="modal fade modal-sure" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">温馨提示</h4>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">
+                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="yes btn btn-primary">确定</button>
+                </div>
             </div>
-            <div class="modal-body">
-              <p class="text-danger"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp&nbsp您确定要退出后台管理系统吗</p>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- 新增模态框 -->
+    <div class="modal fade modal-add" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">编辑商品</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="myForm">
+                        <div class="form-group">
+                            <input name="proName" type="text" class="form-control" placeholder="请输入商品名称">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="proDesc" class="form-control" rows="2" placeholder="请输入商品描述"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input name="num" type="text" class="form-control" placeholder="请输入商品库存">
+                        </div>
+                        <div class="form-group">
+                            <input name="price" type="text" class="form-control" placeholder="请输入商品价格">
+                        </div>
+                        <div class="form-group">
+                            <input name="oldPrice" type="text" class="form-control" placeholder="请输入商品原价">
+                        </div>
+                        <div class="form-group">
+                            <input name="size" type="text" class="form-control" placeholder="请输入商品尺码">
+                        </div>
+                        <div class="form-group">
+                            <input name="pic1" type="file" id="fileUpload" data-url="/product/addProductPic" style="width:82px;height:34px;opacity:0;position:absolute" >
+                            <a href="javascript:void(0)" class="btn btn-default">上传图片</a>
+                            <span>提示: 必须上传三张图片</span>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button form="myForm" type="submit" class="btn btn-primary">确定</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-              <button type="button" class="yes btn btn-primary">确定</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <!-- tbody 的模板   statu 是 一 表示是已上架-->
+    <script id="products-tmp" type="text/html">
+        {{each rows}}
+        <tr>
+            <td>{{(page-1)*size+1+$index}}</td>
+            <td>{{$value.proName}}</td>
+            <td>{{$value.proDesc}}</td>
+            <td>{{$value.num}}</td>
+            <td>{{$value.size}}</td>
+            <td>
+                {{ if $value.statu == 1 }} 已上架 {{else}} 已下架 {{/if}}
+            </td>
+            <td>
+                {{ if $value.statu == 1 }}
+                <button class="btn btn-danger">下架</button>
+                {{else}}
+                <button class="btn btn-success">上架</button>
+                {{/if}}
+                <button class="btn btn-primary">编辑</button>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+
+
+
 </body>
 
 </html>
 <!-- 导入 JQ -->
 <script src="./lib/jquery/jquery.js"></script>
+<!-- 导入 JQ 的文件上传插件 -->
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <!-- 导入 bootstrap 的 JS -->
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
+<!-- 导入表单验证的 JS -->
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<!-- 分页插件 -->
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<!-- 导入模板引擎 -->
+<script src="./lib/artTemplate/template.js"></script>
 <!-- 导入公共的 JS -->
 <script src="./js/common.js"></script>
+<!-- 导入自己的 JS -->
+<script src="./js/products.js"></script>
