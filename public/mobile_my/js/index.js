@@ -1,10 +1,8 @@
-// 轮播
-var gallery = mui('.mui-slider');
-gallery.slider({
-  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
-});
+/*
+* @Author: huang
+* @Date:   2017-12-12 11:37:00
+* @Last Modified by:   huang
+* @Last Modified time: 2017-12-12 12:59:52
+*/
 
-// 滑动
-mui('.mui-scroll-wrapper').scroll({
-	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-})
+'use strict';

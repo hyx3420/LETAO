@@ -1,3 +1,4 @@
+/* 撑满整个页面 */
 html,body{
     height: 100%;
 }
@@ -13,23 +14,70 @@ p{
 ul,ol{
     list-style: none;
 }
-/* 初始化代码结束 */
 
+/* 页面大盒子 */
 .lt_container{
-    width: 100%;
     height: 100%;
-    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* 顶部的样式 */
+.lt_header{
+    height: 45px;
+    background-color: #006699;
+    /* 开启弹性 */
+    display: flex;
+    /* 主轴方向两边定格 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.lt_header h4{
+    color:white;
+}
+.lt_header a{
+    color:white;
+}
+.lt_header a:first-of-type{}
+.lt_header a:last-of-type{}
+
+/* 内容 */
+.lt_content{
+    /* flex 使用 剩余尺寸 */
+    flex:110;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-/* 公共 */
-/* 右浮动 */
-.pull_right{
-    float: right;
-    right: 0;
+/* 底部 */
+.lt_footer{
+    height: 55px;
+    background-color: #069;
 }
-/* 左浮动 */
-.pull_left{
-    float: left;
-    left: 0;
+.lt_footer ul{
+    display: flex;
+    height: 100%;
+}
+.lt_footer ul li{
+    flex:1;
+    text-align: center;
+    padding-top: 10px;
+    height: 100%;
+}
+.lt_footer ul li a{
+    color:white;
+}
+.lt_footer ul li a span{}
+.lt_footer ul li a p{
+    color:white;
 }
 
+/* 高亮样式 */
+.lt_footer li.active a{
+    color:orange;
+}
+.lt_footer li.active p{
+    color:orange;
+}
